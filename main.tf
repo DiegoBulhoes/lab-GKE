@@ -1,7 +1,16 @@
+terraform {
+  required_version = ">= 0.12"
+
+  required_providers {
+    google = {
+      version = "3.54.0"
+    }
+  }
+}
+
 provider "google" {
   project = var.project
   region  = var.region
-  version = "~> 3.35.0"
 }
 resource "google_compute_network" "vpc" {
   name                    = "${var.project}-vpc"
@@ -28,15 +37,6 @@ resource "google_container_cluster" "primary" {
   remove_default_node_pool = var.remove_default_node_pool
 
   initial_node_count = var.initial_node_count
-
-  master_auth {
-    username = var.gke_username
-    password = var.gke_password
-
-    client_certificate_config {
-      issue_client_certificate = var.issue_client_certificate
-    }
-  }
 }
 resource "google_container_node_pool" "primary_preemptible_nodes" {
   name               = "primary-preemptible-nodes-${var.project}"

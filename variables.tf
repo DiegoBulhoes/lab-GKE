@@ -7,12 +7,12 @@ variable "region" {
   description = "region"
 }
 
-variable location {
+variable "location" {
   description = "location"
   default     = "us-central1-a"
 }
 
-variable node_locations {
+variable "node_locations" {
   description = "node_locations"
   default = [
     "us-central1-b",
@@ -48,11 +48,6 @@ variable "initial_node_count" {
 variable "remove_default_node_pool" {
   default     = "true"
   description = "remove default node pool"
-}
-
-variable "issue_client_certificate" {
-  default     = "false"
-  description = "issue client certificate"
 }
 
 variable "gke_num_nodes" {
