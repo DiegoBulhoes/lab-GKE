@@ -66,7 +66,7 @@ variable "max_node_count" {
 }
 
 variable "auto_upgrade" {
-  default     = false
+  default     = true
   description = "auto_upgrade"
 }
 
