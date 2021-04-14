@@ -13,7 +13,7 @@ resource "helm_release" "kubernetes-dashboard" {
 
 resource "kubernetes_namespace" "prometheus" {
   metadata {
-    name = "prometheus"
+    name = var.prometheus_namespace
   }
 }
 
